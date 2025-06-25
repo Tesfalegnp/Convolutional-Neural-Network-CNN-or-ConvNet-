@@ -9,7 +9,6 @@ This project builds a deep learning-based image classification model to detect a
 
 
 Let me know if you’d like a `LICENSE`, `requirements.txt`, or the Python script (`train.py`) version too!
-```
 
 - 📂 Train on images from a zipped dataset
 - 🧠 Deep CNN model using TensorFlow/Keras
@@ -41,7 +40,6 @@ Let me know if you’d like a `LICENSE`, `requirements.txt`, or the Python scrip
 - **Location:** `/content/drive/MyDrive/TomatoDataSets/TomatoVillage.zip`
 - **Structure:**
 ```
-
 TomatoVillage/
 Tomato\_\_\_Healthy/
 Tomato\_\_\_Late\_blight/
