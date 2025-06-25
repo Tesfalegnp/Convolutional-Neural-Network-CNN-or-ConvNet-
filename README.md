@@ -1,88 +1,158 @@
-# Convolutional Neural Network (CNN or ConvNet)
 
-This repository contains code and experiments demonstrating the implementation of Convolutional Neural Networks (CNNs) using Jupyter Notebook. CNNs are a class of deep neural networks commonly used for analyzing visual imagery and are the foundation of most modern computer vision applications.
+# 🍅 Tomato Leaf Disease Detection using CNN
 
-## Features
+This project builds a deep learning-based image classification model to detect and classify diseases in tomato leaves. It uses a Convolutional Neural Network (CNN) trained on the [TomatoVillage dataset](#dataset) and includes pre-processing, training, evaluation, and inference components.
 
-- Example implementation of CNNs in Jupyter Notebook
-- Step-by-step explanations and visualizations
-- Training and evaluation on sample datasets (e.g., MNIST, CIFAR-10, etc.)
-- Customizable network architectures
+---
 
-## Table of Contents
+## 📌 Features
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
 
-## Introduction
-
-Convolutional Neural Networks (CNNs) are highly effective for image classification, object detection, and other computer vision tasks. This project provides a hands-on introduction to CNNs, guiding users from basic concepts to building and training their own models.
-
-## Installation
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/Tesfalegnp/Convolutional-Neural-Network-CNN-or-ConvNet-.git
-    cd Convolutional-Neural-Network-CNN-or-ConvNet-
-    ```
-
-2. Create a virtual environment (optional but recommended):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-3. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *If `requirements.txt` is not present, typical dependencies include:*
-    ```bash
-    pip install numpy matplotlib tensorflow keras jupyter
-    ```
-
-## Usage
-
-1. Start Jupyter Notebook:
-    ```bash
-    jupyter notebook
-    ```
-2. Open the notebook file (e.g., `cnn_example.ipynb`) and follow the instructions within.
-
-3. Run the cells step-by-step to:
-    - Load the dataset
-    - Preprocess the data
-    - Build and train the CNN model
-    - Evaluate and visualize the results
-
-## Project Structure
-
-```
-.
-├── README.md
-├── requirements.txt        # Python dependencies (if available)
-├── tomato_new_model.ipynb       # Main Jupyter Notebook (filename may vary)
-└── tomato_model.keras                     # for backend trained model
+Let me know if you’d like a `LICENSE`, `requirements.txt`, or the Python script (`train.py`) version too!
 ```
 
-## Results
+- 📂 Train on images from a zipped dataset
+- 🧠 Deep CNN model using TensorFlow/Keras
+- 📉 Regularization with data augmentation & dropout to prevent overfitting
+- 🎯 Accurate multi-class prediction of tomato leaf diseases
+- ✅ Built-in detector: *Is this image a tomato leaf or not?*
+- 💾 Save and reuse trained model (`.h5`)
+- 📊 Includes accuracy and loss visualization
+- 🖼️ Easy-to-use prediction function
 
-*Add sample results, plots, or accuracy metrics here. For example:*
+---
 
-- Training accuracy: 98%
-- Test accuracy: 97%
-- Example confusion matrix and loss/accuracy curves
+## 🔧 Tech Stack
 
-## Contributing
+| Tool        | Purpose                            |
+|-------------|------------------------------------|
+| Python      | Main programming language          |
+| TensorFlow  | Model training and evaluation      |
+| Keras       | CNN layers and preprocessing       |
+| Matplotlib  | Accuracy/loss visualization        |
+| NumPy       | Numerical operations               |
 
-Contributions are welcome! Please open an issue or submit a pull request for improvements or bug fixes.
+---
 
-## License
+## 📁 Dataset
 
-This project is open source and available under the [MIT License](LICENSE).
+- **Name:** TomatoVillage
+- **Format:** `.zip`
+- **Location:** `/content/drive/MyDrive/TomatoDataSets/TomatoVillage.zip`
+- **Structure:**
+```
 
+TomatoVillage/
+Tomato\_\_\_Healthy/
+Tomato\_\_\_Late\_blight/
+Tomato\_\_\_Leaf\_Mold/
+
+```
+
+
+> **Note:** Each class folder must begin with `"Tomato"` to trigger "tomato leaf check" logic.
+
+---
+
+## 🚀 How to Use
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Tesfalegnp/Convolutional-Neural-Network-CNN-or-ConvNet.git
+cd Convolutional-Neural-Network-CNN-or-ConvNet
+````
+
+### 2. Upload Dataset
+
+Place your zipped dataset at the following location:
+
+```python
+zip_path = "/content/drive/MyDrive/TomatoDataSets/TomatoVillage.zip"
+```
+
+### 3. Train the Model
+
+Run the `train_model.ipynb` notebook or execute the `train.py` script:
+
+```bash
+python GUI.py
+```
+
+> Training automatically extracts and processes the dataset, augments images, and trains a CNN model.
+
+---
+
+## 🧪 Inference & Prediction
+
+### Use `predict_image(img_path, model, class_names)` to make predictions.
+
+```python
+result = predict_image("/path/to/image.jpg", model, class_names)
+print(result)
+```
+
+* If the image is not of a tomato leaf:
+  🛑 `"Sorry, the image is not a tomato leaf."`
+* If valid:
+  ✅ `"Tomato leaf detected. Disease class: Tomato___Late_blight (95.23%)"`
+
+---
+
+## 📈 Training Results
+
+After training, accuracy and loss graphs are displayed:
+
+| Metric       | Result (Sample)                         |
+| ------------ | --------------------------------------- |
+| Training Acc | 98%                                     |
+| Val Acc      | 96%                                     |
+| Overfitting  | Mitigated with dropout and augmentation |
+
+---
+
+## 💾 Model Export
+
+After training, the model is saved to:
+
+```
+/content/tomato_model.keras
+```
+
+Use this model in other environments like Flask, Tkinter, or Android apps.
+
+---
+
+## ✅ To Do
+
+* [ ] Add Flask/Tkinter UI
+* [ ] Convert to TensorFlow Lite for mobile apps
+* [ ] Deploy on Streamlit or Hugging Face Spaces
+
+---
+
+## 🤝 Contributing
+
+PRs and issues welcome! Please create a pull request or submit an issue.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Acknowledgements
+
+* [TensorFlow](https://www.tensorflow.org/)
+* [TomatoVillage Dataset](https://data.mendeley.com/)
+* Inspiration from Potato Leaf CNN projects
+
+---
+
+## 📬 Contact
+
+For questions, contact \[[Email-Tesfalegn](mailto:peterhope935@gmail.com)] or open an issue.
+
+```
